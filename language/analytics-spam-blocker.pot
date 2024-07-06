@@ -1,0 +1,340 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Analytics Spam Blocker\n"
+"POT-Creation-Date: 2024-04-21 01:10-0600\n"
+"PO-Revision-Date: 2023-01-02 19:56-0700\n"
+"Last-Translator: Arnan de Gans <support@ajdg.solutions>\n"
+"Language-Team: Arnan de Gans <support@ajdg.solutions>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"X-Generator: Poedit 3.4.2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: analytics-spam-blocker.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: analytics-spam-blocker-dashboard.php:22
+msgid "Add a Domain"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:27
+msgid ""
+"Please add any domains that you think are referral spam domains via this "
+"form. Adding a domain also sends a report to AJdG Solutions so others can "
+"benefit of your discovery. This will make Analytics Spam Blocker more "
+"effective with every update. When a domain gets reported a few times by "
+"different users it will be included in the standard blocklist in the next "
+"update. Reports are an automated system."
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:29
+msgid "Referral spam domain:"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:29
+msgid "One domain at a time. Eg: example.com or abc.example.com."
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:31
+msgid "How sure are you about the domain?"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:34
+msgid "I don't trust it"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:37
+msgid "Not so sure"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:40
+msgid "Fairly sure"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:43
+msgid "Totally Spam"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:46
+msgid "Your full name:"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:47
+msgid "Your email address:"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:50
+msgid "Send report and add domain to your custom blocklist"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:53
+msgid "Note:"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:53
+msgid ""
+"No other information will be included with the report. All report "
+"information is deleted after about 1 year."
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:53
+msgid "This information is treated as confidential and is mandatory."
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:53
+msgid ""
+"Reporting the same domain multiple times will have no effect, only the first "
+"report will be taken into consideration!"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+#: analytics-spam-blocker-dashboard.php:60 analytics-spam-blocker.php:61
+#: analytics-spam-blocker.php:80
+msgid "Analytics Spam Blocker"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:63
+msgid "Get help with Analytics Spam Blocker"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:64
+msgid ""
+"If you have any questions about using Analytics Spam Blocker please post it "
+"on the support forum. The quickest way is on the AJdG Solutions forum. "
+"Always happy to help!"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:66
+msgid "AJdG Solutions support forum"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:66
+msgid "Forum on wordpress.org"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:68
+msgid "Support Analytics Spam Blocker"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:69
+msgid ""
+"Consider writing a review or making a donation if you like the plugin or if "
+"you find the plugin useful. Thanks for your support!"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:71
+msgid "Support me with a token of thanks"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:71
+msgid "Gift a token of thanks"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:71
+msgid "Write review on wordpress.org"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:86
+msgid ""
+"Run successful advertisement campaigns on your WordPress website within "
+"minutes."
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:96
+msgid ""
+"Get a checkup for your website and all the latest updates for WordPress and "
+"plugins."
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:102
+msgid "All my plugins"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:103
+msgid "WordPress and ClassicPress"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:106
+msgid "Plugins for WordPress, ClassicPress, WooCommerce and more!"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:118
+msgid "Stats"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:122
+msgid "Reported Domains"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:123
+msgid "All Reports"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:126
+msgid "You Reported"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:127
+msgid "Domains in your blocklist"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:133
+msgid "Spotting referrer spam in your analytics"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:135
+msgid ""
+"Referrer spam, also called refferal spam, is usually easily spotted in "
+"Google Analytics and Matomo Analytics. Often these domains have stupid names "
+"with common words or numbers in them designed to make you curious why anyone "
+"would visit you from that site."
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:137
+msgid ""
+"For example domains such as: 1-best-seo.com or autoseo-expert.com or simple-"
+"share-buttons.com. These names are designed to make you lure you to visit "
+"the website."
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:139
+msgid "Finding referrer spam:"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:140
+msgid "In Matomo navigate to Acquisition -> Websites"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:141
+msgid "In Google Analytics navigate to Acquisition -> All Traffic -> Referrals"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:142
+msgid ""
+"Most, if not all, analytics platforms have a referral or incoming traffic "
+"overview. If this tab refers to which website your visitors came from, then "
+"you can expect to find referrer spam there."
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:144
+msgid "What happens to reported domains?"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:145
+msgid ""
+"Analytics Spam Blocker has a unique system to report referral spam straight "
+"from your dashboard. This makes it really easy to report and get rid of "
+"referral spam domains. Simply enter the domain name, indicate how sure you "
+"are of the domain being spam and click report. After a few people report the "
+"domain it will be distributed to all users of Analytics Spam Blocker in the "
+"next update."
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:150
+msgid "News & Updates"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:152
+msgid "Subscribe via RSS feed"
+msgstr ""
+
+#: analytics-spam-blocker-dashboard.php:152
+msgid "No account required!"
+msgstr ""
+
+#: analytics-spam-blocker-functions.php:84
+msgid "Your .htaccess file is not writable!"
+msgstr ""
+
+#: analytics-spam-blocker-functions.php:319
+msgid "Thank you for your report!!"
+msgstr ""
+
+#: analytics-spam-blocker-functions.php:319
+msgid ""
+"The domain has been added to your custom block list. When the domain gets a "
+"few reports it will be included in the standard blocklist so everyone will "
+"benefit from your efforts."
+msgstr ""
+
+#: analytics-spam-blocker-functions.php:326
+msgid "Report received!!"
+msgstr ""
+
+#: analytics-spam-blocker-functions.php:326
+msgid ""
+"The report has been received but did not meet the criteria for submission. "
+"Commonly this happens if a invalid domainname was submitted or information "
+"was missing from the form. Please try again later, or contact support if the "
+"issue persists."
+msgstr ""
+
+#: analytics-spam-blocker-functions.php:332
+msgid ""
+"Your name, email address and a referral domain name are required. Please try "
+"again."
+msgstr ""
+
+#: analytics-spam-blocker-functions.php:336
+msgid "The domain you are trying to report is not valid. Please try again."
+msgstr ""
+
+#: analytics-spam-blocker-functions.php:340
+msgid "Please use your valid email address"
+msgstr ""
+
+#: analytics-spam-blocker-functions.php:344
+msgid "The server responded with an error."
+msgstr ""
+
+#: analytics-spam-blocker-functions.php:348
+msgid "Unexpected error"
+msgstr ""
+
+#: analytics-spam-blocker-functions.php:361
+msgid "Oh no! Something went wrong!"
+msgstr ""
+
+#: analytics-spam-blocker-functions.php:362
+msgid ""
+"WordPress was unable to verify the authenticity of the url you have clicked. "
+"Verify if the url used is valid or log in via your browser."
+msgstr ""
+
+#: analytics-spam-blocker-functions.php:363
+msgid ""
+"If you have received the url you want to visit via email, you are probably "
+"being tricked!"
+msgstr ""
+
+#: analytics-spam-blocker-functions.php:364
+msgid "Contact support if the issue persists:"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid ""
+"https://ajdg.solutions/product/analytics-spam-blocker/?"
+"mtm_campaign=spamblocker"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Stop referrer spam from affecting your website analytics. Easily create a "
+"local blocklist and report new domains to stay on top of the issue."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Arnan de Gans"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://www.arnan.me/?mtm_campaign=spamblocker"
+msgstr ""
