@@ -1,5 +1,5 @@
 # Analytics Spam Blocker
-## Prevent referrer spam from affecting your website analytics. Easily create a local blocklist and receive new domains weekly to stay on top of the issue.
+## Prevent referrer spam from affecting your website analytics.
 
 View on: [ajdg.solutions](https://ajdg.solutions/product/analytics-spam-blocker/) ~ [WordPres.org](https://wordpress.org/plugins/analytics-spam-blocker/)
 
