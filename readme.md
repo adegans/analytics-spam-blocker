@@ -1,6 +1,8 @@
 # Analytics Spam Blocker
 ## Prevent referrer spam from affecting your website analytics. Easily create a local blocklist and receive new domains weekly to stay on top of the issue.
 
+View on: [ajdg.solutions](https://ajdg.solutions/product/analytics-spam-blocker/) ~ [WordPres.org](https://wordpress.org/plugins/analytics-spam-blocker/)
+
 ## Description
 For any website or business owner, having Matomo Analytics, Google Analytics and similar services are a vital tool to track your website performance. Unfortunately there are spam bots from many shady organizations that bounce off your website and give you false records in your analytics - This is called 'referral spam' or more commonly referrer spam. Analytics Spam Blocker prevents this kind of spam from ever reaching your website by blocking them at the server level leaving your analytics untouched. Easily add new domains that you find and receive weekly updates in the background with new domains as well. Stop those sites from affecting anyones website analytics today!
 
