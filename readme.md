@@ -1,5 +1,7 @@
-# Analytics Spam Blocker
-## Prevent referrer spam from affecting your website analytics.
+# Analytics Spam Blocker for WordPress
+### Analytics Spam Blocker for ClassicPress
+
+Prevent referrer spam from affecting your website analytics.
 
 View on: [ajdg.solutions](https://ajdg.solutions/product/analytics-spam-blocker/) ~ [WordPres.org](https://wordpress.org/plugins/analytics-spam-blocker/)
 
