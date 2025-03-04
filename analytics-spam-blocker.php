@@ -1,19 +1,19 @@
 <?php
 /*
 Plugin Name: Analytics Spam Blocker
-Plugin URI: https://ajdg.solutions/product/analytics-spam-blocker/?mtm_campaign=ajdg_spamblocker
+Plugin URI: https://ajdg.solutions/product/analytics-spam-blocker/
 Author: Arnan de Gans
-Author URI: https://www.arnan.me/?mtm_campaign=ajdg_spamblocker
+Author URI: https://www.arnan.me/
 Description: Stop referrer spam from affecting your website analytics. Easily create a local blocklist and report new domains to stay on top of the issue.
 Text Domain: analytics-spam-blocker
 Domain Path: /languages/
-Version: 4.0
+Version: 4.0.2
 License: GPLv3
 */
 
 /* ------------------------------------------------------------------------------------
 *  COPYRIGHT NOTICE
-*  Copyright 2016-2024 Arnan de Gans. All Rights Reserved.
+*  Copyright 2016-2025 Arnan de Gans. All Rights Reserved.
 
 *  COPYRIGHT NOTICES AND ALL THE COMMENTS SHOULD REMAIN INTACT.
 *  By using this code you agree to indemnify Arnan de Gans from any

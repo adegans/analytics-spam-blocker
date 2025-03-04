@@ -1,7 +1,7 @@
 <?php
 /* ------------------------------------------------------------------------------------
 *  COPYRIGHT NOTICE
-*  Copyright 2016-2023 Arnan de Gans. All Rights Reserved.
+*  Copyright 2016-2025 Arnan de Gans. All Rights Reserved.
 
 *  COPYRIGHT NOTICES AND ALL THE COMMENTS SHOULD REMAIN INTACT.
 *  By using this code you agree to indemnify Arnan de Gans from any
@@ -106,7 +106,7 @@ function spamblocker_report_submit() {
 		$new_domain = $new_domain['host'];
 
 		// Load existing domains
-		$custom_domains = get_option('ajdg_spamblocker_domains');	
+		$custom_domains = get_option('ajdg_spamblocker_domains');
 		$remote_domains = spamblocker_load_remote_domains();
 
 		// Process and response
@@ -122,11 +122,11 @@ function spamblocker_report_submit() {
 			if(!in_array($new_domain, $custom_domains['domains'])) {
 				$custom_domains['domains'][] = $new_domain;
 			}
-			
+
 			update_option('ajdg_spamblocker_domains', $custom_domains);
 
 			spamblocker_edit_htaccess();
-			
+
 			spamblocker_return(200);
 		}
 	} else {
@@ -205,7 +205,7 @@ function spamblocker_clean_htaccess($start, $end) {
 -------------------------------------------------------------*/
 function spamblocker_load_remote_domains() {
 	$domain_file = WP_CONTENT_DIR.'/spamblocker_remote_domains.data';
-	
+
 	if(!is_file($domain_file)) {
 		// Create file if it doesn't exist
 	    $domains = array('updated' => 0, 'domain_count' => 0, 'domains' => array());
@@ -214,7 +214,7 @@ function spamblocker_load_remote_domains() {
 		// Read file
 		$domains = unserialize(file_get_contents($domain_file));
 	}
-	
+
 	return $domains;
 }
 
@@ -235,14 +235,14 @@ function spamblocker_get_spam_domains() {
 		// Get latest blocklist
 		$args = array('headers' => array('Accept' => 'multipart/form-data'), 'user-agent' => 'analytics-spam-blocker/'.$plugin_version.';', 'sslverify' => false, 'timeout' => 5);
 		$response = wp_remote_get('https://raw.githubusercontent.com/matomo-org/referrer-spam-list/master/spammers.txt', $args);
-	
+
 	    if(!is_wp_error($response) AND !empty($response['body'])) {
 			$new_domains = array();
-			
+
 			// Turn string into an array
 			$new_domains['domains'] = explode("\n", trim($response['body']));
 			$how_many = count($new_domains['domains']);
-			
+
 			if($how_many > 0) {
 				$domains['updated'] = current_time('timestamp');
 				$domains['domain_count'] = $how_many;
@@ -288,7 +288,7 @@ function spamblocker_notifications_dashboard() {
 	if($birthday_banner < current_time('timestamp') AND date('M', current_time('timestamp')) == 'Feb') {
 		echo '<div class="ajdg-spamblocker-notification notice" style="">';
 		echo '	<div class="ajdg-spamblocker-notification-logo" style="background-image: url(\''.plugins_url('/images/birthday.png', __FILE__).'\');"><span></span></div>';
-		echo '	<div class="ajdg-spamblocker-notification-message">Hey <strong>'.$displayname.'</strong>! Did you know it is Arnan his birtyday this month? February 9th to be exact. Wish him a happy birthday via Telegram!<br />Who is Arnan? He made Analytics Spam Blocker for you - Check out his <a href="https://www.arnan.me/?mtm_campaign=ajdg_spamblocker&mtm_keyword=birthday_banner" target="_blank">website</a> or <a href="https://www.arnan.me/donate.html?mtm_campaign=ajdg_spamblocker&mtm_keyword=birthday_banner" target="_blank">send a gift</a>.</div>';
+		echo '	<div class="ajdg-spamblocker-notification-message">Hey <strong>'.$displayname.'</strong>! Did you know it is Arnan his birtyday this month? February 9th to be exact. Wish him a happy birthday via Telegram!<br />Who is Arnan? He made Analytics Spam Blocker for you - Check out his <a href="https://www.arnan.me/" target="_blank">website</a> or <a href="https://www.arnan.me/donate.html" target="_blank">send a gift</a>.</div>';
 		echo '	<div class="ajdg-spamblocker-notification-cta">';
 		echo '		<a href="https://t.me/arnandegans" target="_blank" class="ajdg-spamblocker-notification-act button-primary"><i class="icn-tg"></i>Wish Happy Birthday</a>';
 		echo '		<a href="tools.php?page=analytics-spam-blocker&hide=2" class="ajdg-spamblocker-notification-dismiss">Done it</a>';
@@ -303,8 +303,8 @@ function spamblocker_notifications_dashboard() {
 -------------------------------------------------------------*/
 function spamblocker_action_links($links) {
 	$links['ajdg-spamblocker-settings'] = sprintf('<a href="%s">%s</a>', admin_url('tools.php?page=analytics-spam-blocker'), 'Settings');
-	$links['ajdg-spamblocker-help'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://ajdg.solutions/forums/?mtm_campaign=ajdg_spamblocker', 'Support');
-	$links['ajdg-spamblocker-more'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://ajdg.solutions/plugins/?mtm_campaign=ajdg_spamblocker', 'More plugins');
+	$links['ajdg-spamblocker-help'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://support.ajdg.net/', 'Support');
+	$links['ajdg-spamblocker-more'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://ajdg.solutions/plugins/', 'More plugins');
 
 	return $links;
 }
