@@ -1,7 +1,7 @@
 <?php
 /* ------------------------------------------------------------------------------------
 *  COPYRIGHT NOTICE
-*  Copyright 2016-2025 Arnan de Gans. All Rights Reserved.
+*  Copyright 2016-2026 Arnan de Gans. All Rights Reserved.
 
 *  COPYRIGHT NOTICES AND ALL THE COMMENTS SHOULD REMAIN INTACT.
 *  By using this code you agree to indemnify Arnan de Gans from any
@@ -9,14 +9,6 @@
 ------------------------------------------------------------------------------------ */
 
 defined('ABSPATH') or die();
-
-/*-------------------------------------------------------------
- Name:      spamblocker_dashboard_styles
- Purpose:	add dashboard scripts/styles
--------------------------------------------------------------*/
-function spamblocker_dashboard_styles() {
-	wp_enqueue_style('asb-admin-stylesheet', plugins_url('library/dashboard.css', __FILE__));
-}
 
 /*-------------------------------------------------------------
  Name:      spamblocker_activate
@@ -73,6 +65,34 @@ function spamblocker_deactivate() {
 		// Not writable
 		wp_die(_e('Your .htaccess file is not writable!'));
 	}
+}
+
+/*-------------------------------------------------------------
+ Name:      spamblocker_init
+ Purpose: 	Initialize
+-------------------------------------------------------------*/
+function spamblocker_init() {
+	load_plugin_textdomain('analytics-spam-blocker', false, 'analytics-spam-blocker/language');
+}
+
+/*-------------------------------------------------------------
+ Name:      spamblocker_dashboard_styles
+ Purpose:	add dashboard scripts/styles
+-------------------------------------------------------------*/
+function spamblocker_dashboard_styles() {
+	wp_enqueue_style('asb-admin-stylesheet', plugins_url('library/dashboard.css', __FILE__));
+}
+
+/*-------------------------------------------------------------
+ Name:      spamblocker_action_links
+ Purpose:	Useful links on the plugin page
+-------------------------------------------------------------*/
+function spamblocker_action_links($links) {
+	$links['ajdg-spamblocker-settings'] = sprintf('<a href="%s">%s</a>', admin_url('tools.php?page=analytics-spam-blocker'), __('Settings', 'analytics-spam-blocker'));
+	$links['ajdg-spamblocker-help'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://support.ajdg.net/', __('Support', 'analytics-spam-blocker'));
+	$links['ajdg-spamblocker-more'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://ajdg.solutions/plugins/', __('More plugins', 'analytics-spam-blocker'));
+
+	return $links;
 }
 
 /*-------------------------------------------------------------
@@ -265,10 +285,7 @@ function spamblocker_notifications_dashboard() {
 
 	if(isset($_GET['hide'])) {
 		if($_GET['hide'] == 1) update_option('ajdg_spamblocker_hide_review', 1);
-		if($_GET['hide'] == 2) update_option('ajdg_spamblocker_hide_birthday', current_time('timestamp') + (11 * MONTH_IN_SECONDS));
 	}
-
-	$displayname = (strlen($current_user->user_firstname) > 0) ? $current_user->user_firstname : $current_user->display_name;
 
 	// Review
 	$review_banner = get_option('ajdg_spamblocker_hide_review');
@@ -282,31 +299,6 @@ function spamblocker_notifications_dashboard() {
 		echo '	</div>';
 		echo '</div>';
 	}
-
-	// Birthday
-	$birthday_banner = get_option('ajdg_spamblocker_hide_birthday');
-	if($birthday_banner < current_time('timestamp') AND date('M', current_time('timestamp')) == 'Feb') {
-		echo '<div class="ajdg-spamblocker-notification notice" style="">';
-		echo '	<div class="ajdg-spamblocker-notification-logo" style="background-image: url(\''.plugins_url('/images/birthday.png', __FILE__).'\');"><span></span></div>';
-		echo '	<div class="ajdg-spamblocker-notification-message">Hey <strong>'.$displayname.'</strong>! Did you know it is Arnan his birtyday this month? February 9th to be exact. Wish him a happy birthday via Telegram!<br />Who is Arnan? He made Analytics Spam Blocker for you - Check out his <a href="https://www.arnan.me/" target="_blank">website</a> or <a href="https://www.arnan.me/donate.html" target="_blank">send a gift</a>.</div>';
-		echo '	<div class="ajdg-spamblocker-notification-cta">';
-		echo '		<a href="https://t.me/arnandegans" target="_blank" class="ajdg-spamblocker-notification-act button-primary"><i class="icn-tg"></i>Wish Happy Birthday</a>';
-		echo '		<a href="tools.php?page=analytics-spam-blocker&hide=2" class="ajdg-spamblocker-notification-dismiss">Done it</a>';
-		echo '	</div>';
-		echo '</div>';
-	}
-}
-
-/*-------------------------------------------------------------
- Name:      spamblocker_action_links
- Purpose:	Useful links on the plugin page
--------------------------------------------------------------*/
-function spamblocker_action_links($links) {
-	$links['ajdg-spamblocker-settings'] = sprintf('<a href="%s">%s</a>', admin_url('tools.php?page=analytics-spam-blocker'), 'Settings');
-	$links['ajdg-spamblocker-help'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://support.ajdg.net/', 'Support');
-	$links['ajdg-spamblocker-more'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://ajdg.solutions/plugins/', 'More plugins');
-
-	return $links;
 }
 
 /*-------------------------------------------------------------
@@ -363,12 +355,12 @@ function spamblocker_status($status, $args = null) {
 
 /*-------------------------------------------------------------
  Name:      spamblocker_nonce_error
- Purpose:   Display a formatted error if Nonce fails
 -------------------------------------------------------------*/
 function spamblocker_nonce_error() {
 	echo '	<h2 style="text-align: center;">'.__('Oh no! Something went wrong!', 'analytics-spam-blocker').'</h2>';
 	echo '	<p style="text-align: center;">'.__('WordPress was unable to verify the authenticity of the url you have clicked. Verify if the url used is valid or log in via your browser.', 'analytics-spam-blocker').'</p>';
-	echo '	<p style="text-align: center;">'.__('If you have received the url you want to visit via email, you are probably being tricked!', 'analytics-spam-blocker').'</p>';
-	echo '	<p style="text-align: center;">'.__('Contact support if the issue persists:', 'analytics-spam-blocker').' <a href="https://wordpress.org/support/plugin/analytics-spam-blocker/" title="AJdG Solutions Support" target="_blank">AJdG Solutions Support</a>.</p>';
+	echo '	<p style="text-align: center;">'.__('If you have received the url you want to visit via email, you are being tricked!', 'analytics-spam-blocker').'</p>';
+	echo '	<p style="text-align: center;">'.__('Contact support if the issue persists:', 'analytics-spam-blocker').' <a href="https://support.ajdg.net/" title="AJdG Solutions Support" target="_blank">AJdG Solutions Support</a>.</p>';
 }
+
 ?>

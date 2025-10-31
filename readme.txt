@@ -3,11 +3,11 @@ Contributors: adegans
 Tags: analytics, spam, referral spam, referrer spam, antispam
 Donate link: https://www.arnan.me/donate.html
 Requires at least: 4.9
-Tested up to: 6.7.2
-Stable tag: 4.0.2
+Tested up to: 6.8.3
+Stable tag: 4.1
 License: GPLv3
 
-Prevent referrer spam from affecting your website analytics. Easily create a local blocklist and receive new domains weekly to stay on top of the issue.
+Prevent referrer spam from affecting your website analytics. Easily create a blocklist and receive new domains weekly to stay on top of the issue.
 
 == Description ==
 Installing **Analytics Spam Blocker** is almost a must-have for any WordPress or ClassicPress website that collects visitor analytics with something like Matomo Analytics, Google Analytics or similar services. Accurate analytics are often a vital tool to track your website's performance or just to see how many visitors you get.
@@ -19,6 +19,12 @@ Unfortunately there are lots of spambots from every shady corner of the internet
 With **Analytics Spam Blocker** you can easily add new domains that you find and you'll receive weekly updates in the background with new domains as well. Stop those sites from affecting your website analytics today!
 
 == Changelog ==
+
+= 4.1 - October 31, 2025 =
+* [fix] Translation domain not defined correctly
+* [change] Dashboard tweaks
+* [update] Action links
+* [i18n] Added missing translation strings
 
 = 4.0.2 - March 4, 2025 =
 * [change] Updated compatibility information

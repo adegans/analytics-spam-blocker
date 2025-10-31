@@ -1,7 +1,7 @@
 <?php
 /* ------------------------------------------------------------------------------------
 *  COPYRIGHT NOTICE
-*  Copyright 2016-2025 Arnan de Gans. All Rights Reserved.
+*  Copyright 2016-2026 Arnan de Gans. All Rights Reserved.
 
 *  COPYRIGHT NOTICES AND ALL THE COMMENTS SHOULD REMAIN INTACT.
 *  By using this code you agree to indemnify Arnan de Gans from any
@@ -50,29 +50,27 @@ $remotelist = spamblocker_load_remote_domains();
 					<p><a class="button-primary" href="https://www.arnan.me/donate.html?mtm_campaign=ajdg_spamblocker" target="_blank" title="<?php _e("Support me with a token of thanks", 'analytics-spam-blocker'); ?>"><?php _e("Gift a token of thanks", 'analytics-spam-blocker'); ?></a> <a class="button-secondary" href="https://wordpress.org/support/plugin/analytics-spam-blocker/reviews?rate=5#postform" target="_blank" title="<?php _e("Write review on wordpress.org", 'analytics-spam-blocker'); ?>"><?php _e("Write review on wordpress.org", 'analytics-spam-blocker'); ?></a></p>
 
 
-					<p><strong>More plugins and services</strong></p>
-					<p>Check out these and more services in more details on my website. I also make more plugins. If you like Analytics Spam Blocker - Maybe you like some of those as well. Take a look at the <a href="https://ajdg.solutions/plugins/?mtm_campaign=ajdg_spamblocker" target="_blank">plugins</a> and overall <a href="https://ajdg.solutions/pricing/?mtm_campaign=ajdg_spamblocker" target="_blank">pricing</a> page for more.</p>
-
+					<p><strong><?php _e('Plugins and services', 'analytics-spam-blocker'); ?></strong></p>
 					<table width="100%">
 						<tr>
 							<td width="50%">
 								<div class="ajdg-sales-widget" style="display: inline-block; margin-right:2%;">
-									<a href="https://ajdg.solutions/product/adrotate-pro-single/?mtm_campaign=ajdg_spamblocker" target="_blank"><div class="header"><img src="<?php echo plugins_url("/images/offers/monetize-your-site.jpg", __FILE__); ?>" alt="AdRotate Professional" width="228" height="120"></div></a>
-									<a href="https://ajdg.solutions/product/adrotate-pro-single/?mtm_campaign=ajdg_spamblocker" target="_blank"><div class="title">AdRotate Professional</div></a>
-									<div class="sub_title">WordPress Plugin</div>
-									<div class="cta"><a role="button" class="cta_button" href="https://ajdg.solutions/product/adrotate-pro-single/?mtm_campaign=ajdg_spamblocker" target="_blank">Get a license</a></div>
+									<a href="https://ajdg.solutions/product/adrotate-pro-single/" target="_blank"><div class="header"><img src="<?php echo plugins_url("/images/offers/monetize-your-site.jpg", __FILE__); ?>" alt="AdRotate Professional" width="228" height="120"></div></a>
+									<a href="https://ajdg.solutions/product/adrotate-pro-single/" target="_blank"><div class="title"><?php _e('AdRotate Professional', 'analytics-spam-blocker'); ?></div></a>
+									<div class="sub_title"><?php _e('WordPress Plugin', 'analytics-spam-blocker'); ?></div>
+									<div class="cta"><a role="button" class="cta_button" href="https://ajdg.solutions/product/adrotate-pro-single/" target="_blank"><?php _e('Starting at', 'analytics-spam-blocker'); ?> &euro; 49,-</a></div>
 									<hr>
-									<div class="description">Run successful advertisement campaigns on your WordPress website within minutes. Use features like Geo Targeting, scheduling and post injection to start making that passive income!</div>
+									<div class="description"><?php _e('Place any kind of advert including those from Google Adsense or affiliate links on your WordPress and ClassicPress website.', 'analytics-spam-blocker'); ?></div>
 								</div>
 							</td>
 							<td>
 								<div class="ajdg-sales-widget" style="display: inline-block;">
-									<a href="https://ajdg.solutions/plugins/?mtm_campaign=ajdg_spamblocker" target="_blank"><div class="header"><img src="<?php echo plugins_url("/images/offers/more-plugins.jpg", __FILE__); ?>" alt="AJdG Solutions Plugins" width="228" height="120"></div></a>
-									<a href="https://ajdg.solutions/plugins/?mtm_campaign=ajdg_spamblocker" target="_blank"><div class="title"><?php _e("All my plugins", 'analytics-spam-blocker'); ?></div></a>
-									<div class="sub_title"><?php _e("WordPress and ClassicPress", 'analytics-spam-blocker'); ?></div>
-									<div class="cta"><a role="button" class="cta_button" href="https://ajdg.solutions/plugins/?mtm_campaign=ajdg_spamblocker" target="_blank">View now</a></div>
+									<a href="https://ajdg.solutions/plugins/" target="_blank"><div class="header"><img src="<?php echo plugins_url("/images/offers/more-plugins.jpg", __FILE__); ?>" alt="AJdG Solutions Plugins" width="228" height="120"></div></a>
+									<a href="https://ajdg.solutions/plugins/" target="_blank"><div class="title"><?php _e('All my plugins', 'analytics-spam-blocker'); ?></div></a>
+									<div class="sub_title"><?php _e('WordPress and ClassicPress', 'analytics-spam-blocker'); ?></div>
+									<div class="cta"><a role="button" class="cta_button" href="https://ajdg.solutions/plugins/" target="_blank"><?php _e('View now', 'analytics-spam-blocker'); ?></a></div>
 									<hr>
-									<div class="description">Plugins for WordPress and ClassicPress and bbPress. Improve your website with my handy extensions for WooCommerce and run your webshop more efficiently!</div>
+									<div class="description"><?php _e('Excellent plugins for WordPres, ClassicPress, WooCommerce and bbPress. Most of them are completely FREE to use!', 'analytics-spam-blocker'); ?></div>
 								</div>
 							</td>
 						</tr>
@@ -111,8 +109,8 @@ $remotelist = spamblocker_load_remote_domains();
 					<?php _e("In Google Analytics navigate to Acquisition -> All Traffic -> Referrals", 'analytics-spam-blocker'); ?></p>
 					<p><?php _e("Most, if not all, analytics platforms have a referral or incoming traffic overview. If this tab refers to which website your visitors came from, then you can expect to find referrer spam there.", 'analytics-spam-blocker'); ?></p>
 
-					<p><strong><?php _e("What happens to reported domains?", 'analytics-spam-blocker'); ?></strong><br />
-        			<?php _e("Analytics Spam Blocker has a unique system to report referral spam straight from your dashboard. This makes it really easy to report and get rid of referral spam domains. Simply enter the domain name, indicate how sure you are of the domain being spam and click report. After a few people report the domain it will be distributed to all users of Analytics Spam Blocker in the next update.", 'analytics-spam-blocker'); ?></p>
+					<p><strong><?php _e("What happens to blocked domains?", 'analytics-spam-blocker'); ?></strong><br />
+        			<?php _e("Analytics Spam Blocker has a simple to use system to block referral spam straight from your dashboard. Enter the domain name click the Add button to add the domain to your custom blocklist. This list is stored in the database for reference, but the real work happens in your .htaccess file. This is a server configuration file that, among other things, can control who or what accesses your website.", 'analytics-spam-blocker'); ?></p>
 				</div>
 			</div>
 
@@ -122,9 +120,9 @@ $remotelist = spamblocker_load_remote_domains();
 					<p><a href="http://ajdg.solutions/feed/" target="_blank" title="Subscribe to the AJdG Solutions RSS feed!" class="button-primary"><i class="icn-rss"></i><?php _e("Subscribe via RSS feed", 'analytics-spam-blocker'); ?></a> <em><?php _e("No account required!", 'analytics-spam-blocker'); ?></em></p>
 
 					<?php wp_widget_rss_output(array(
-						'url' => array('http://ajdg.solutions/feed/'),
-						'items' => 4,
-						'show_summary' => 1,
+						'url' => array('http://ajdg.solutions/feed/', 'https://www.arnan.me/blog/feed/rss'),
+						'items' => 10,
+						'show_summary' => 0,
 						'show_author' => 0,
 						'show_date' => 1)
 					); ?>
