@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Analytics Spam Blocker\n"
-"POT-Creation-Date: 2025-10-31 13:24-0700\n"
+"POT-Creation-Date: 2025-12-19 00:43-0700\n"
 "PO-Revision-Date: 2023-01-02 19:56-0700\n"
 "Last-Translator: Arnan de Gans <support@ajdg.solutions>\n"
 "Language-Team: Arnan de Gans <support@ajdg.solutions>\n"
@@ -46,8 +46,8 @@ msgid "Add domain to your custom blocklist"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-#: analytics-spam-blocker-dashboard.php:39 analytics-spam-blocker.php:56
-#: analytics-spam-blocker.php:72
+#: analytics-spam-blocker-dashboard.php:39 analytics-spam-blocker.php:66
+#: analytics-spam-blocker.php:82
 msgid "Analytics Spam Blocker"
 msgstr ""
 
@@ -228,48 +228,62 @@ msgstr ""
 msgid "More plugins"
 msgstr ""
 
-#: analytics-spam-blocker-functions.php:333
+#: analytics-spam-blocker-functions.php:331
 msgid "Success!!"
 msgstr ""
 
-#: analytics-spam-blocker-functions.php:333
+#: analytics-spam-blocker-functions.php:331
 msgid "The domain has been added to your custom block list."
 msgstr ""
 
-#: analytics-spam-blocker-functions.php:339
+#: analytics-spam-blocker-functions.php:337
 msgid "A referral domain name is required. Please try again."
 msgstr ""
 
-#: analytics-spam-blocker-functions.php:343
+#: analytics-spam-blocker-functions.php:341
 msgid "The domain you are trying to add is not valid. Please try again."
 msgstr ""
 
-#: analytics-spam-blocker-functions.php:347
+#: analytics-spam-blocker-functions.php:345
 msgid "The domain you are adding is already in the list."
 msgstr ""
 
-#: analytics-spam-blocker-functions.php:351
+#: analytics-spam-blocker-functions.php:349
 msgid "Unexpected error"
 msgstr ""
 
-#: analytics-spam-blocker-functions.php:363
+#: analytics-spam-blocker-functions.php:360
 msgid "Oh no! Something went wrong!"
 msgstr ""
 
-#: analytics-spam-blocker-functions.php:364
+#: analytics-spam-blocker-functions.php:361
 msgid ""
 "WordPress was unable to verify the authenticity of the url you have clicked. "
 "Verify if the url used is valid or log in via your browser."
 msgstr ""
 
-#: analytics-spam-blocker-functions.php:365
+#: analytics-spam-blocker-functions.php:362
 msgid ""
-"If you have received the url you want to visit via email, you are probably "
-"being tricked!"
+"If you have received the url you want to visit via email, you are being "
+"tricked!"
 msgstr ""
 
-#: analytics-spam-blocker-functions.php:366
+#: analytics-spam-blocker-functions.php:363
 msgid "Contact support if the issue persists:"
+msgstr ""
+
+#: library/common.php:51
+msgid "RSS Error:"
+msgstr ""
+
+#: library/common.php:59
+msgid ""
+"An error has occurred, which probably means the feed is down. Try again "
+"later."
+msgstr ""
+
+#: library/common.php:80
+msgid "Untitled"
 msgstr ""
 
 #. Plugin URI of the plugin/theme

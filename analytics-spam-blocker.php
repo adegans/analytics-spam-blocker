@@ -5,9 +5,18 @@ Plugin URI: https://ajdg.solutions/product/analytics-spam-blocker/
 Author: Arnan de Gans
 Author URI: https://www.arnan.me/
 Description: Stop referrer spam from affecting your website analytics. Easily create a local blocklist and report new domains to stay on top of the issue.
-Domain Path: /languages
-Version: 4.1
+Version: 4.2
 License: GPLv3
+
+Text Domain: analytics-spam-blocker
+Domain Path: /languages
+
+Requires at least: 5.8
+Requires PHP: 8.0
+Requires CP: 2.0
+Tested CP: 2.6
+Premium URI: https://ajdg.solutions/
+GooseUp: compatible
 */
 
 /* ------------------------------------------------------------------------------------
@@ -22,27 +31,21 @@ License: GPLv3
 defined('ABSPATH') or die();
 
 /*--- Load Files --------------------------------------------*/
-$plugin_folder = plugin_dir_path(__FILE__);
-require_once($plugin_folder.'/analytics-spam-blocker-functions.php');
+include_once(plugin_dir_path(__FILE__).'/library/common.php');
+include_once(plugin_dir_path(__FILE__).'/analytics-spam-blocker-functions.php');
 /*-----------------------------------------------------------*/
 
 /*--- Core --------------------------------------------------*/
 register_activation_hook(__FILE__, 'spamblocker_activate');
-register_deactivation_hook(__FILE__, 'spamblocker_deactivate');
-/*-----------------------------------------------------------*/
-
-/*--- Front end ---------------------------------------------*/
+register_uninstall_hook(__FILE__, 'spamblocker_deactivate');
 add_action('init', 'spamblocker_init');
-/*-----------------------------------------------------------*/
 
-/*--- Back end ----------------------------------------------*/
 if(is_admin()) {
 	spamblocker_check_config();
 	/*--- Dashboard ---------------------------------------------*/
 	add_action('admin_menu', 'spamblocker_dashboard_menu');
 	add_action("admin_print_styles", 'spamblocker_dashboard_styles');
-	add_action('admin_notices', 'spamblocker_notifications_dashboard');
-	add_filter('plugin_action_links_' . plugin_basename( __FILE__ ), 'spamblocker_action_links');
+	add_filter('plugin_row_meta', 'spamblocker_meta_links', 10, 2);
 	/*--- Actions -----------------------------------------------*/
 	if(isset($_POST['spamblocker_report_submit'])) add_action('init', 'spamblocker_report_submit');
 }

@@ -17,8 +17,6 @@ defined('ABSPATH') or die();
 function spamblocker_activate() {
 	// Defaults
 	add_option('ajdg_spamblocker_domains', array('updated' => 0, 'domain_count' => 0, 'domains' => array()));
-	update_option('ajdg_spamblocker_hide_review', current_time('timestamp'));
-	update_option('ajdg_spamblocker_hide_birthday', current_time('timestamp'));
 
 	if(!wp_next_scheduled('spamblocker_get_spam_domains')) wp_schedule_event(time() + 120, 'weekly', 'spamblocker_get_spam_domains');
 	spamblocker_get_spam_domains();
@@ -40,20 +38,21 @@ function spamblocker_activate() {
 function spamblocker_deactivate() {
 	wp_clear_scheduled_hook('spamblocker_get_spam_domains');
 	delete_option('ajdg_spamblocker_domains');
-	delete_option('ajdg_spamblocker_hide_review');
-	delete_option('ajdg_spamblocker_hide_birthday');
+	delete_option('ajdg_activate_analytics-spam-blocker'); // Must match slug
+	delete_transient('ajdg_update_analytics-spam-blocker'); // Must match slug
 
-	// Obsolete in version 4.0
-	wp_clear_scheduled_hook('ajdg_api_stats_update');
-	delete_option('ajdg_spamblocker_updates');
-	delete_option('ajdg_activate_analytics-spam-blocker');
-	delete_option('ajdg_spamblocker_user');
-	delete_option('ajdg_spamblocker_stats');
-	delete_option('ajdg_spamblocker_error');
-	delete_option('ajdg_spamblocker_subscription');
-	delete_option('ajdg_spamblocker_reports');
-	delete_option('ajdg_spamblocker_hide_register');
-	delete_option('ajdg_spamblocker_version');
+	delete_option('ajdg_spamblocker_hide_birthday'); // Obsolete in version 4.2
+	delete_option('ajdg_spamblocker_hide_review'); // Obsolete in 4.2
+	wp_clear_scheduled_hook('ajdg_api_stats_update'); // Obsolete in 4.0
+	delete_option('ajdg_spamblocker_updates'); // Obsolete in 4.0
+	delete_option('ajdg_activate_analytics-spam-blocker'); // Obsolete in 4.0
+	delete_option('ajdg_spamblocker_user'); // Obsolete in 4.0
+	delete_option('ajdg_spamblocker_stats'); // Obsolete in 4.0
+	delete_option('ajdg_spamblocker_error'); // Obsolete in 4.0
+	delete_option('ajdg_spamblocker_subscription'); // Obsolete in 4.0
+	delete_option('ajdg_spamblocker_reports'); // Obsolete in 4.0
+	delete_option('ajdg_spamblocker_hide_register'); // Obsolete in 4.0
+	delete_option('ajdg_spamblocker_version'); // Obsolete in 4.0
 
 	// Delete domain cache
 	unlink(WP_CONTENT_DIR.'/spamblocker_remote_domains.data');
@@ -84,13 +83,15 @@ function spamblocker_dashboard_styles() {
 }
 
 /*-------------------------------------------------------------
- Name:      spamblocker_action_links
- Purpose:	Useful links on the plugin page
+ Name:	  	spamblocker_meta_links
+ Purpose:	Extra links on the plugins dashboard page
 -------------------------------------------------------------*/
-function spamblocker_action_links($links) {
-	$links['ajdg-spamblocker-settings'] = sprintf('<a href="%s">%s</a>', admin_url('tools.php?page=analytics-spam-blocker'), __('Settings', 'analytics-spam-blocker'));
-	$links['ajdg-spamblocker-help'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://support.ajdg.net/', __('Support', 'analytics-spam-blocker'));
-	$links['ajdg-spamblocker-more'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://ajdg.solutions/plugins/', __('More plugins', 'analytics-spam-blocker'));
+function spamblocker_meta_links($links, $file) {
+	if($file !== 'analytics-spam-blocker/analytics-spam-blocker.php') return $links;
+
+	$links['ajdg-settings'] = sprintf('<a href="%s">%s</a>', admin_url('tools.php?page=analytics-spam-blocker'), __('Settings', 'analytics-spam-blocker'));
+	$links['ajdg-help'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://support.ajdg.net/knowledgebase.php', __('Plugin Support', 'analytics-spam-blocker'));
+	$links['ajdg-more'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://ajdg.solutions/plugins/', __('More plugins', 'analytics-spam-blocker'));	
 
 	return $links;
 }
@@ -107,9 +108,6 @@ function spamblocker_check_config() {
 
 	$review = get_option('ajdg_spamblocker_hide_review');
 	if(!$review) update_option('ajdg_spamblocker_hide_review', $two_days);
-
-	$birthday = get_option('ajdg_spamblocker_hide_birthday');
-	if(!$birthday) update_option('ajdg_spamblocker_hide_birthday', current_time('timestamp'));
 }
 
 /*-------------------------------------------------------------
@@ -117,7 +115,7 @@ function spamblocker_check_config() {
  Purpose:   Add a domain to your blocklist
 -------------------------------------------------------------*/
 function spamblocker_report_submit() {
-	if(wp_verify_nonce($_POST['spamblocker_nonce_report'], 'spamblocker_nonce_report')) {
+	if(wp_verify_nonce($_POST['spamblocker_nonce'], 'analytics-spam-blocker')) {
 		$new_domain = (isset($_POST['spamblocker_report_domain'])) ? $_POST['spamblocker_report_domain'] : "";
 
 		// Cleanup
@@ -273,31 +271,6 @@ function spamblocker_get_spam_domains() {
 				unset($current_domains, $new_domains, $domains);
 			}
 		}
-	}
-}
-
-/*-------------------------------------------------------------
- Name:      spamblocker_notifications_dashboard
- Purpose:	Dashboard notifications
--------------------------------------------------------------*/
-function spamblocker_notifications_dashboard() {
-	global $current_user;
-
-	if(isset($_GET['hide'])) {
-		if($_GET['hide'] == 1) update_option('ajdg_spamblocker_hide_review', 1);
-	}
-
-	// Review
-	$review_banner = get_option('ajdg_spamblocker_hide_review');
-	if($review_banner != 1 AND $review_banner < (current_time('timestamp') - 1214600)) {
-		echo '<div class="ajdg-spamblocker-notification notice" style="">';
-		echo '	<div class="ajdg-spamblocker-notification-logo" style="background-image: url(\''.plugins_url('/images/notification.png', __FILE__).'\');"><span></span></div>';
-		echo '	<div class="ajdg-spamblocker-notification-message">If you like <strong>Analytics Spam Blocker</strong> let everyone know that you do. Thanks for your support!<br /><span>If you have questions, suggestions or something else that doesn\'t belong in a review, please <a href="https://wordpress.org/support/plugin/analytics-spam-blocker/" target="_blank">get in touch</a>!</span></div>';
-		echo '	<div class="ajdg-spamblocker-notification-cta">';
-		echo '		<a href="https://wordpress.org/support/plugin/analytics-spam-blocker/reviews?rate=5#postform" class="ajdg-notification-act button-primary">Write Review</a>';
-		echo '		<a href="tools.php?page=analytics-spam-blocker&hide=1" class="ajdg-notification-dismiss">Maybe later</a>';
-		echo '	</div>';
-		echo '</div>';
 	}
 }
 

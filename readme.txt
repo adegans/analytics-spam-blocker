@@ -1,11 +1,12 @@
 === Analytics Spam Blocker ===
 Contributors: adegans
-Tags: analytics, spam, referral spam, referrer spam, antispam
-Donate link: https://www.arnan.me/donate.html
-Requires at least: 4.9
-Tested up to: 6.8.3
-Stable tag: 4.1
+Stable tag: 4.2
+Tested up to: 6.9
+Requires PHP: 8.0
+Requires at least: 5.8
 License: GPLv3
+Tags: analytics, spam, referral spam, referrer spam, antispam
+Donate link: https://www.arnan.me/donate/
 
 Prevent referrer spam from affecting your website analytics. Easily create a blocklist and receive new domains weekly to stay on top of the issue.
 
@@ -20,11 +21,17 @@ With **Analytics Spam Blocker** you can easily add new domains that you find and
 
 == Changelog ==
 
+= 4.2 - December 21, 2025 =
+* Added - Support for updates through GooseUp
+* Added - Meta links
+* Removed - Action links
+* Change - i18n is now in the 'languages' folder
+
 = 4.1 - October 31, 2025 =
-* [fix] Translation domain not defined correctly
-* [change] Dashboard tweaks
-* [update] Action links
-* [i18n] Added missing translation strings
+* fix - Translation domain not defined correctly
+* change - Dashboard tweaks
+* update - Action links
+* i18n - Added missing translation strings
 
 = 4.0.2 - March 4, 2025 =
 * [change] Updated compatibility information
@@ -187,10 +194,10 @@ Matomo Analytics publishes a list of domains to be blocked. Analytics Spam Block
 In a way, you do. But the majority of domains are community managed and published by Matomo Analytics through Github.
 
 = I need help with this plugin =
-Check out the [Support Forum](https://wordpress.org/support/plugin/analytics-spam-blocker/).
+Check out my [Support system](https://support.ajdg.net/knowledgebase.php)
 
 = This is cool, do you have more plugins? =
-Yep, check out my website [AJdG Solutions](https://ajdg.solutions/plugins/?mtm_campaign=ajdg_spamblocker).
+Yep, check out my website [AJdG Solutions](https://ajdg.solutions/plugins/)
 
 == Installation ==
 1. Navigate to Plugins > Add New in your dashboard.
