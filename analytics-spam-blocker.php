@@ -5,7 +5,7 @@ Plugin URI: https://ajdg.solutions/product/analytics-spam-blocker/
 Author: Arnan de Gans
 Author URI: https://www.arnan.me/
 Description: Stop referrer spam from affecting your website analytics. Easily create a local blocklist and report new domains to stay on top of the issue.
-Version: 4.2
+Version: 4.2.0.1
 License: GPLv3
 
 Text Domain: analytics-spam-blocker
@@ -14,7 +14,7 @@ Domain Path: /languages
 Requires at least: 5.8
 Requires PHP: 8.0
 Requires CP: 2.0
-Tested CP: 2.6
+Tested CP: 2.7.4
 Premium URI: https://ajdg.solutions/
 GooseUp: compatible
 */

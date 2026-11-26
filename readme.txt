@@ -1,7 +1,7 @@
 === Analytics Spam Blocker ===
 Contributors: adegans
-Stable tag: 4.2
-Tested up to: 6.9
+Stable tag: 4.2.0.1
+Tested up to: 7.1
 Requires PHP: 8.0
 Requires at least: 5.8
 License: GPLv3
@@ -21,7 +21,10 @@ With **Analytics Spam Blocker** you can easily add new domains that you find and
 
 == Changelog ==
 
-= 4.2 - December 21, 2025 =
+= 4.2.0.1 - November 26, 2025 =
+* update - Compatibility information
+
+= 4.2 - December 26, 2025 =
 * Added - Support for updates through GooseUp
 * Added - Meta links
 * Removed - Action links
